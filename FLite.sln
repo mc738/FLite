@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FLite.Core", "FLite.Core\FLite.Core.fsproj", "{ABB08DFE-1827-419E-B8DF-A17D4B876ABD}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FLite.Console", "FLite.Console\FLite.Console.fsproj", "{0DCC0351-3E5B-49F8-9C8F-4580FCF66070}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FLite.TestConsole", "FLite.TestConsole\FLite.TestConsole.fsproj", "{04E1679A-65DD-43C7-9FF6-A92FAFD8D6F8}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FLite.Tests", "FLite.Tests\FLite.Tests.fsproj", "{EADED5C8-B46F-495D-8D06-CD534285B3EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABB08DFE-1827-419E-B8DF-A17D4B876ABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABB08DFE-1827-419E-B8DF-A17D4B876ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABB08DFE-1827-419E-B8DF-A17D4B876ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABB08DFE-1827-419E-B8DF-A17D4B876ABD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DCC0351-3E5B-49F8-9C8F-4580FCF66070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DCC0351-3E5B-49F8-9C8F-4580FCF66070}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DCC0351-3E5B-49F8-9C8F-4580FCF66070}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DCC0351-3E5B-49F8-9C8F-4580FCF66070}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04E1679A-65DD-43C7-9FF6-A92FAFD8D6F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04E1679A-65DD-43C7-9FF6-A92FAFD8D6F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04E1679A-65DD-43C7-9FF6-A92FAFD8D6F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04E1679A-65DD-43C7-9FF6-A92FAFD8D6F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EADED5C8-B46F-495D-8D06-CD534285B3EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EADED5C8-B46F-495D-8D06-CD534285B3EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EADED5C8-B46F-495D-8D06-CD534285B3EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EADED5C8-B46F-495D-8D06-CD534285B3EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
