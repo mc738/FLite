@@ -36,11 +36,31 @@ type BazQuery = {
 let from whom =
     sprintf "from %s" whom
 
+
+let toFieldName (name : string) =
+
+    name
+    |> List.ofSeq
+    |> List.fold (fun (acc, i) c ->
+        let newAcc =
+            match Char.IsUpper c, i = 0 with
+            | false, _ -> acc @ [ c ]
+            | true, true -> acc @ [ Char.ToLower(c) ]
+            | true, false -> acc @ [ '_'; Char.ToLower(c) ]
+        (newAcc, i + 1)) ([], 0)
+    |> (fun (chars, _) -> String(chars |> Array.ofList))
+
+
 [<EntryPoint>]
 let main argv =
+    
+    printfn "%s" (toFieldName "SomePascalCaseName")
+    
     use blob1 = new MemoryStream(Encoding.UTF8.GetBytes("Hello, World!"))
     let blob2 = new MemoryStream(Encoding.UTF8.GetBytes("More data!"))
 
+    
+    
     let id = Guid.NewGuid()
 
     let qh = QueryHandler.Create($"/home/max/Data/FLiteTests/{DateTime.Now:yyyyMMddHHmmss}.db")

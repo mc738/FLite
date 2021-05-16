@@ -1,14 +1,7 @@
 namespace FLite.Core
 
 open System
-open System.Data.Common
 open System.IO
-open System.Reflection
-open System.Text.Json
-open System.Text.Json
-open System.Transactions
-open Microsoft.Data.Sqlite
-open Microsoft.Data.Sqlite
 open Microsoft.Data.Sqlite
 open Microsoft.FSharp.Reflection
 open FLite.Core.Utils
@@ -211,7 +204,7 @@ module Mapping =
                 |> List.mapi
                     (fun i pi ->
                         { FieldName = pi.Name
-                          MappingName = pi.Name
+                          MappingName = pi.Name.ToSnakeCase()
                           Index = i
                           Type = SupportedType.FromType(pi.PropertyType) })
 

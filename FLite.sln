@@ -7,6 +7,10 @@ EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FLite.Tests", "FLite.Tests\FLite.Tests.fsproj", "{EADED5C8-B46F-495D-8D06-CD534285B3EB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{78FD15F2-FD78-4F2F-80D8-86F55BFB052B}"
+ProjectSection(SolutionItems) = preProject
+	LICENSE = LICENSE
+	README.md = README.md
+EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
