@@ -170,12 +170,6 @@ module Mapping =
                             | att when att <> null ->
                                 let mfa = att :?> MappedFieldAttribute
 
-                                printfn
-                                    "Property '%s': JsonPropertyName = %s, Type = %s "
-                                    pi.Name
-                                    mfa.Name
-                                    (pi.PropertyType.Name)
-
                                 // TODO check if supported type.
 
                                 // TODO handle blobs and unhandled property types.
@@ -186,8 +180,11 @@ module Mapping =
                                       Index = i
                                       Type = SupportedType.FromType(pi.PropertyType) } ]
                             | _ ->
-                                printfn "Property '%s' does not have `JsonPropertyName` attribute" pi.Name
                                 acc
+                                @ [ { FieldName = pi.Name
+                                      MappingName = pi.Name.ToSnakeCase()
+                                      Index = i
+                                      Type = SupportedType.FromType(pi.PropertyType) } ]
 
                         (newAcc, i + 1))
                     ([], 0)
@@ -224,7 +221,6 @@ module Mapping =
 
         static member Create<'T>(values: FieldValue list) =
             let t = typeof<'T>
-            printfn "Values: %A" values
 
             let v =
                 values
@@ -392,7 +388,16 @@ module private QueryHelpers =
 
         mapResults<'T> tMappedObj reader
 
+    let selectSql<'T> (sql: string) (connection: SqliteConnection) (transaction: SqliteTransaction option) =
+        let tMappedObj = MappedObject.Create<'T>()
 
+        let comm = noParam connection sql transaction
+
+        use reader = comm.ExecuteReader()
+
+        mapResults<'T> tMappedObj reader
+
+    
     [<RequireQualifiedAccess>]
     /// Special handling is needed for `INSERT` query to accommodate blobs.
     /// This module aims to wrap as much of that up to in one place.
@@ -530,6 +535,9 @@ type QueryHandler(connection: SqliteConnection, transaction: SqliteTransaction o
     member handler.SelectVerbatim<'T, 'P>(sql, parameters) =
         QueryHelpers.select<'T, 'P> sql connection parameters transaction
 
+    member handler.SelectSql<'T>(sql) =
+        QueryHelpers.selectSql<'T>(sql) connection transaction
+    
     member handler.SelectSingle<'T>(tableName) = handler.Select<'T>(tableName).Head
 
     member handler.SelectSingleVerbatim<'T, 'P>(sql: string, parameters: 'p) =
