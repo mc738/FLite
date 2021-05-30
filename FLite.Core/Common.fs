@@ -532,7 +532,7 @@ type QueryHandler(connection: SqliteConnection, transaction: SqliteTransaction o
 
     member handler.SelectSingle<'T>(tableName) = handler.Select<'T>(tableName).Head
 
-    member handler.SelectSingleVerbatim<'T, 'P>(sql: string, parameters: 'p) =
+    member handler.SelectSingleVerbatim<'T, 'P>(sql: string, parameters: 'P) =
         handler
             .SelectVerbatim<'T, 'P>(
                 sql,
